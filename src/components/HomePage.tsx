@@ -8,6 +8,33 @@ const HomePage = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
+  // const handleUpload = async (file: File) => {
+  //   setUploading(true);
+  //   setError(null);
+
+  //   const formData = new FormData();
+  //   formData.append('video', file);
+  //   formData.append('title', file.name.split('.').slice(0, -1).join('.')); // Use filename as title
+  //   formData.append('description', ''); // Empty description by default
+
+  //   try {
+  //     const response = await fetch('https://veezo.pro/', {
+  //       method: 'POST',
+  //       body: formData,
+  //     });
+
+  //     if (!response.ok) {
+  //       throw new Error('Upload failed');
+  //     }
+
+  //     const data = await response.json();
+  //     navigate(`/v_id=${data.videoId}`);
+  //   } catch (err) {
+  //     setError('Failed to upload video. Please try again.');
+  //     setUploading(false);
+  //   }
+  // };
+
   const handleUpload = async (file: File) => {
     setUploading(true);
     setError(null);
@@ -18,18 +45,21 @@ const HomePage = () => {
     formData.append('description', ''); // Empty description by default
 
     try {
-      const response = await fetch('https://veezo.pro/upload', {
+      const response = await fetch('https://veezo.pro/', {
         method: 'POST',
         body: formData,
       });
 
       if (!response.ok) {
+        const errorText = await response.text(); // Get response text for more details
+        console.error('Upload failed with status:', response.status, errorText);
         throw new Error('Upload failed');
       }
 
       const data = await response.json();
       navigate(`/v_id=${data.videoId}`);
     } catch (err) {
+      console.error('Upload error:', err);
       setError('Failed to upload video. Please try again.');
       setUploading(false);
     }
