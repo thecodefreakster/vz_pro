@@ -19,7 +19,7 @@ const VideoPlayer = () => {
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/videos/v_id=${videoId}`);
+        const response = await fetch(`http://veezo.pro/v_id=${videoId}`);
         if (!response.ok) {
           throw new Error('Video not found');
         }
@@ -69,7 +69,7 @@ const VideoPlayer = () => {
           Your browser does not support the video tag.
         </video>
       </div>
-      
+
       <div className="container mx-auto px-4 py-6">
         <div className="bg-[#1E293B] rounded-xl p-6 shadow-xl">
           <div className="flex justify-between items-start mb-6">
@@ -89,7 +89,7 @@ const VideoPlayer = () => {
               <span>{copied ? 'Copied!' : 'Share'}</span>
             </button>
           </div>
-          
+
           <div className="flex items-center space-x-6 text-slate-400">
             <div className="flex items-center space-x-2">
               <Eye size={20} />

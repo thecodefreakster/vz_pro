@@ -18,7 +18,7 @@ const HomePage = () => {
     formData.append('description', ''); // Empty description by default
 
     try {
-      const response = await fetch('http://localhost:5000/api/videos/upload', {
+      const response = await fetch('http://veezo.pro', {
         method: 'POST',
         body: formData,
       });
@@ -53,7 +53,7 @@ const HomePage = () => {
           {error}
         </div>
       )}
-      
+
       <input
         type="file"
         ref={fileInputRef}
