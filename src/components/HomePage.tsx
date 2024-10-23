@@ -18,7 +18,7 @@ const HomePage = () => {
     formData.append('description', ''); // Empty description by default
 
     try {
-      const response = await fetch('http://veezo.pro', {
+      const response = await fetch('https://veezo.pro', {
         method: 'POST',
         body: formData,
       });

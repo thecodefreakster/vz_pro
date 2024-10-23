@@ -170,7 +170,7 @@ const UploadPage: React.FC<UploadPageProps> = ({ setUploadedVideoId }) => {
   const navigate = useNavigate();
 
   // Use environment variables for API URLs
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://veezo.pro';
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();

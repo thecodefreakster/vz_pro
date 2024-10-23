@@ -19,7 +19,7 @@ const VideoPlayer = () => {
   useEffect(() => {
     const fetchVideoData = async () => {
       try {
-        const response = await fetch(`http://veezo.pro/v_id=${videoId}`);
+        const response = await fetch(`https://veezo.pro/v_id=${videoId}`);
         if (!response.ok) {
           throw new Error('Video not found');
         }
